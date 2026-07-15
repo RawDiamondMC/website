@@ -382,9 +382,6 @@ importers:
 
   .:
     dependencies:
-      '@iconify/vue':
-        specifier: ^5.0.1
-        version: 5.0.1(vue@3.5.39(typescript@6.0.3))
       gray-matter:
         specifier: ^4.0.3
         version: 4.0.3
@@ -394,6 +391,9 @@ importers:
       rolldown:
         specifier: ^1.1.5
         version: 1.1.5
+      unplugin-vue-components:
+        specifier: ^32.1.0
+        version: 32.1.0(@voidzero-dev/vite-plus-core@0.2.4)(rolldown@1.1.5)(vue@3.5.39(typescript@6.0.3))
       vue:
         specifier: ^3.5.39
         version: 3.5.39(typescript@6.0.3)
@@ -401,6 +401,9 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(@voidzero-dev/vite-plus-core@0.2.4)(@vue/compiler-sfc@3.5.39)(rolldown@1.1.5)(vue@3.5.39(typescript@6.0.3))
     devDependencies:
+      '@iconify/json':
+        specifier: ^2.2.499
+        version: 2.2.499
       '@tsconfig/node24':
         specifier: ^24.0.4
         version: 24.0.4
@@ -425,6 +428,9 @@ importers:
       typescript:
         specifier: ~6.0.3
         version: 6.0.3
+      unplugin-icons:
+        specifier: ^23.0.1
+        version: 23.0.1(@vue/compiler-sfc@3.5.39)
       vite:
         specifier: npm:@voidzero-dev/vite-plus-core@0.2.4
         version: '@voidzero-dev/vite-plus-core@0.2.4(@types/node@24.13.3)(@vitejs/devtools@0.3.4)(jiti@2.7.0)(publint@0.3.21)(typescript@6.0.3)(yaml@2.9.0)'
@@ -442,6 +448,9 @@ importers:
         version: 3.3.7(typescript@6.0.3)
 
 packages:
+
+  '@antfu/install-pkg@1.1.0':
+    resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
 
   '@babel/code-frame@7.29.7':
     resolution: {integrity: sha512-Aup7aUOfpbAUg2ROOJN6Iw5f9DMBlzu0mIkm/malLQFN/YQgO48wCj0Kxa3sEHJvPVFg7siR+qRInwXd2qhQKw==}
@@ -648,13 +657,14 @@ packages:
   '@floating-ui/utils@0.2.12':
     resolution: {integrity: sha512-HpCo8tmWzLVad5s2d19EhAz5zqrrQ6s69qd6moPMQvkOuSwDT1YgRfWSVuc4ennqrgv3OHppiOGMQ7oC13yIww==}
 
+  '@iconify/json@2.2.499':
+    resolution: {integrity: sha512-O7iaQsaJlu2XN8R0kHUjEPFr8M+fk08o6gV3vwxq1sgkA2UU0OlwDU+n/CzYHPBe7Fh+Gmxvtd9mp//fz/9m/g==}
+
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
 
-  '@iconify/vue@5.0.1':
-    resolution: {integrity: sha512-aumwwooJlFJ5H5qYWB6ZTAyM0C8hpfcSVLB9/a3qnH1GGvIJ+FEbpEs4s/HfErYe/M5qZeLjwmESR5fFm3lXEw==}
-    peerDependencies:
-      vue: '>=3.0.0'
+  '@iconify/utils@3.1.4':
+    resolution: {integrity: sha512-b1S7B1k9ohZ+iNTi2ATxbRYG9fTrJmUT0rc46bvVnNxqNRGW7dyo/vRREwyniI5IRN2RSJHDcm+s3BjWrSAjHw==}
 
   '@jest/types@27.0.2':
     resolution: {integrity: sha512-XpjCtJ/99HB4PmyJ2vgmN7vT+JLP7RW1FBT9RgnMFS4Dt7cvIyBee8O3/j98aUZ34ZpenPZFqmaaObWSeL65dg==}
@@ -663,23 +673,12 @@ packages:
   '@jridgewell/gen-mapping@0.3.12':
     resolution: {integrity: sha512-OuLGC46TjB5BbN1dH8JULVVZY4WTdkF7tV9Ys6wLL1rubZnCMstOhNHueU5bLCrnRuDhKPDM4g6sw4Bel5Gzqg==}
 
-  '@jridgewell/gen-mapping@0.3.5':
-    resolution: {integrity: sha512-IzL8ZoEDIBRWEzlCcRhOaCupYyN5gdIK+Q6fbFdPDg6HqX6jpkItn7DFIpW9LQzXG6Df9sA7+OKnq0qlz/GaQg==}
-    engines: {node: '>=6.0.0'}
-
   '@jridgewell/remapping@2.3.5':
     resolution: {integrity: sha512-LI9u/+laYG4Ds1TDKSJW2YPrIlcVYOwi2fUC6xB43lueCjgxV4lffOCZCtYFiH6TNOX+tQKXx97T4IKHbhyHEQ==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
     engines: {node: '>=6.0.0'}
-
-  '@jridgewell/set-array@1.2.1':
-    resolution: {integrity: sha512-R8gLRTZeyp03ymzP/6Lil/28tGeGEzhx1q2k703KGWRAI1VdvPIXdG70VJc2pAMw3NA6JKL5hhFu1sJX0Mnn/A==}
-    engines: {node: '>=6.0.0'}
-
-  '@jridgewell/sourcemap-codec@1.4.10':
-    resolution: {integrity: sha512-Ht8wIW5v165atIX1p+JvKR5ONzUyF4Ac8DZIQ5kZs9zrb6M8SJNXpx1zn04rn65VjBMygRoMXcyYwNK0fT7bEg==}
 
   '@jridgewell/sourcemap-codec@1.4.14':
     resolution: {integrity: sha512-XPSJHWmi394fuUuzDnGz1wiKqWfo1yXecHQMRf2l6hztTO+nPru658AyDngaBe7isIxEkRsPR3FZh+s7iVa4Uw==}
@@ -1849,6 +1848,9 @@ packages:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
     engines: {node: '>=8'}
 
+  import-meta-resolve@4.2.0:
+    resolution: {integrity: sha512-Iqv2fzaTQN28s/FwZAoFq0ZSs/7hMAHJVX+w8PZl3cY19Pxk6jFFalxQoIfW2826i/fDLXv8IiEZRIT0lDuWcg==}
+
   iron-webcrypto@1.2.1:
     resolution: {integrity: sha512-feOM6FaSr6rEABp/eDfVseKyTMDt+KGpeB35SkVn9Tyn0CqvVsY3EwI0v5i8nMHyJnzCIQf7nsy3p41TPkJZhg==}
 
@@ -2333,9 +2335,40 @@ packages:
   undici-types@7.18.2:
     resolution: {integrity: sha512-AsuCzffGHJybSaRrmr5eHr81mwJU3kjw6M+uprWvCXiNeN9SOGwQ3Jn8jb8m3Z6izVgknn1R0FTCEAP2QrLY/w==}
 
+  unplugin-icons@23.0.1:
+    resolution: {integrity: sha512-rv0XEJepajKzDLvRUWASM8K+8+/CCfZn2jtogXqg6RIp7kpatRc/aFrVJn8ANQA09e++lPEEv9yX8cC9enc+QQ==}
+    peerDependencies:
+      '@svgr/core': '>=7.0.0'
+      '@svgx/core': ^1.0.1
+      '@vue/compiler-sfc': ^3.0.2
+      svelte: ^3.0.0 || ^4.0.0 || ^5.0.0
+    peerDependenciesMeta:
+      '@svgr/core':
+        optional: true
+      '@svgx/core':
+        optional: true
+      '@vue/compiler-sfc':
+        optional: true
+      svelte:
+        optional: true
+
   unplugin-utils@0.3.2:
     resolution: {integrity: sha512-xVToRh2CTmLk2HnEG7ac4rl1MJTT3RFkpS8B++/SnB0kXvuaavD+n3m/vrzyWQOdJNSZQACnbz01pnppbwV5BA==}
     engines: {node: '>=20.19.0'}
+
+  unplugin-vue-components@32.1.0:
+    resolution: {integrity: sha512-YiUkSxuRjab18XFOrX5VsIxXzccrfmHVGsGeJgSgklb829DQmCy9E4vvDUE4tuvZZdxyFJZX0Oc4TPnnxiiMyg==}
+    engines: {node: '>=20.19.0'}
+    peerDependencies:
+      '@nuxt/kit': ^3.2.2 || ^4.0.0
+      vue: ^3.0.0
+    peerDependenciesMeta:
+      '@nuxt/kit':
+        optional: true
+
+  unplugin@2.3.11:
+    resolution: {integrity: sha512-5uKD0nqiYVzlmCRs01Fhs2BdkEgBS3SAVP6ndrBsuK42iC2+JHyxM05Rm9G8+5mkmRtzMZGY8Ct5+mliZxU/Ww==}
+    engines: {node: '>=18.12.0'}
 
   unplugin@3.3.0:
     resolution: {integrity: sha512-qa66K+crbfyE6JK10GjvbJeRrOsuC/JpbnHctfyp/i4oBTxWOzJfRZyDiOk1PtErMFRu8JhsU/wPvOdBNWe5Rg==}
@@ -2632,6 +2665,11 @@ packages:
 
 snapshots:
 
+  '@antfu/install-pkg@1.1.0':
+    dependencies:
+      package-manager-detector: 1.7.0
+      tinyexec: 1.2.4
+
   '@babel/code-frame@7.29.7':
     dependencies:
       '@babel/helper-validator-identifier': 7.29.7
@@ -2922,12 +2960,18 @@ snapshots:
 
   '@floating-ui/utils@0.2.12': {}
 
-  '@iconify/types@2.0.0': {}
-
-  '@iconify/vue@5.0.1(vue@3.5.39(typescript@6.0.3))':
+  '@iconify/json@2.2.499':
     dependencies:
       '@iconify/types': 2.0.0
-      vue: 3.5.39(typescript@6.0.3)
+      pathe: 2.0.3
+
+  '@iconify/types@2.0.0': {}
+
+  '@iconify/utils@3.1.4':
+    dependencies:
+      '@antfu/install-pkg': 1.1.0
+      '@iconify/types': 2.0.0
+      import-meta-resolve: 4.2.0
 
   '@jest/types@27.0.2':
     dependencies:
@@ -2942,22 +2986,12 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@jridgewell/gen-mapping@0.3.5':
-    dependencies:
-      '@jridgewell/set-array': 1.2.1
-      '@jridgewell/sourcemap-codec': 1.4.10
-      '@jridgewell/trace-mapping': 0.3.31
-
   '@jridgewell/remapping@2.3.5':
     dependencies:
-      '@jridgewell/gen-mapping': 0.3.5
+      '@jridgewell/gen-mapping': 0.3.12
       '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/resolve-uri@3.1.2': {}
-
-  '@jridgewell/set-array@1.2.1': {}
-
-  '@jridgewell/sourcemap-codec@1.4.10': {}
 
   '@jridgewell/sourcemap-codec@1.4.14': {}
 
@@ -3975,6 +4009,8 @@ snapshots:
 
   html-tags@3.3.1: {}
 
+  import-meta-resolve@4.2.0: {}
+
   iron-webcrypto@1.2.1: {}
 
   is-docker@3.0.0: {}
@@ -4448,10 +4484,50 @@ snapshots:
 
   undici-types@7.18.2: {}
 
+  unplugin-icons@23.0.1(@vue/compiler-sfc@3.5.39):
+    dependencies:
+      '@antfu/install-pkg': 1.1.0
+      '@iconify/utils': 3.1.4
+      local-pkg: 1.2.1
+      obug: 2.1.3
+      unplugin: 2.3.11
+    optionalDependencies:
+      '@vue/compiler-sfc': 3.5.39
+
   unplugin-utils@0.3.2:
     dependencies:
       pathe: 2.0.3
       picomatch: 4.0.5
+
+  unplugin-vue-components@32.1.0(@voidzero-dev/vite-plus-core@0.2.4)(rolldown@1.1.5)(vue@3.5.39(typescript@6.0.3)):
+    dependencies:
+      chokidar: 5.0.0
+      local-pkg: 1.2.1
+      magic-string: 0.30.21
+      mlly: 1.8.2
+      obug: 2.1.3
+      picomatch: 4.0.5
+      tinyglobby: 0.2.17
+      unplugin: 3.3.0(@voidzero-dev/vite-plus-core@0.2.4)(rolldown@1.1.5)
+      unplugin-utils: 0.3.2
+      vue: 3.5.39(typescript@6.0.3)
+    transitivePeerDependencies:
+      - '@farmfe/core'
+      - '@rspack/core'
+      - bun-types-no-globals
+      - esbuild
+      - rolldown
+      - rollup
+      - unloader
+      - vite
+      - webpack
+
+  unplugin@2.3.11:
+    dependencies:
+      '@jridgewell/remapping': 2.3.5
+      acorn: 8.17.0
+      picomatch: 4.0.5
+      webpack-virtual-modules: 0.6.2
 
   unplugin@3.3.0(@voidzero-dev/vite-plus-core@0.2.4)(rolldown@1.1.5):
     dependencies:

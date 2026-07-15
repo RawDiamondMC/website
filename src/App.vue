@@ -1,9 +1,8 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 import { RouterLink, RouterView } from "vue-router";
-import { Icon } from "@iconify/vue";
 
-const drinks = ["雪碧", "可乐", "冰激凌"];
+const drinks = ["一瓶雪碧", "一瓶可乐", "一份冰激凌"];
 const randomDrink = drinks[Math.floor(Math.random() * drinks.length)];
 
 type Theme = "auto" | "light" | "dark";
@@ -37,29 +36,29 @@ onMounted(() => apply(theme.value));
     <aside class="sidebar">
       <!-- Avatar -->
       <div class="sidebar-avatar">
-        <img src="https://github.com/RawDiamondMC.png" alt="RawDiamondMC" />
+        <img src="https://github.com/RawDiamondMC.png" alt="RawDiamondMC" decoding="async" />
       </div>
 
       <!-- Vertical Navigation -->
       <nav class="sidebar-nav">
         <RouterLink to="/">
-          <Icon icon="mdi:home-outline" class="nav-icon" aria-hidden="true" />
+          <i-mdi:home-outline class="nav-icon" />
           主页
         </RouterLink>
         <RouterLink to="/categories">
-          <Icon icon="mdi:shape-outline" class="nav-icon" aria-hidden="true" />
+          <i-mdi:shape-outline class="nav-icon" />
           分类
         </RouterLink>
         <RouterLink to="/tools">
-          <Icon icon="mdi:tools" class="nav-icon" aria-hidden="true" />
+          <i-mdi:tools class="nav-icon" />
           工具
         </RouterLink>
         <RouterLink to="/about">
-          <Icon icon="mdi:information-outline" class="nav-icon" aria-hidden="true" />
+          <i-mdi:information-outline class="nav-icon" />
           关于
         </RouterLink>
         <RouterLink to="/friend">
-          <Icon icon="mdi:account-group-outline" class="nav-icon" aria-hidden="true" />
+          <i-mdi:account-group-outline class="nav-icon" />
           友链
         </RouterLink>
         <a
@@ -68,28 +67,28 @@ onMounted(() => apply(theme.value));
           rel="noopener"
           class="sponsor-link"
         >
-          <Icon icon="mdi:coffee-outline" class="nav-icon" aria-hidden="true" />
-          请我一杯{{ randomDrink }}
+          <i-mdi:coffee-outline class="nav-icon" />
+          请我{{ randomDrink }}
         </a>
       </nav>
 
       <!-- Theme Toggle -->
       <div class="theme-toggle">
         <button :class="{ active: theme === 'light' }" @click="setTheme('light')" title="亮色">
-          <Icon icon="mdi:white-balance-sunny" />
+          <i-mdi:white-balance-sunny />
         </button>
         <button :class="{ active: theme === 'auto' }" @click="setTheme('auto')" title="自动">
-          <Icon icon="mdi:theme-light-dark" />
+          <i-mdi:theme-light-dark />
         </button>
         <button :class="{ active: theme === 'dark' }" @click="setTheme('dark')" title="暗色">
-          <Icon icon="mdi:weather-night" />
+          <i-mdi:weather-night />
         </button>
       </div>
 
       <!-- Social Icons (desktop only) -->
       <div class="sidebar-social desktop-only">
         <a href="https://github.com/RawDiamondMC" target="_blank" rel="noopener" title="GitHub">
-          <Icon icon="mdi:github" aria-hidden="true" />
+          <i-mdi:github />
         </a>
         <a
           href="https://bsky.app/profile/rawdiamondmc.bsky.social"
@@ -97,10 +96,10 @@ onMounted(() => apply(theme.value));
           rel="noopener"
           title="Bluesky"
         >
-          <Icon icon="mdi:butterfly-outline" aria-hidden="true" />
+          <i-mdi:butterfly-outline />
         </a>
-        <a href="mailto:rawdiamondmc@aosc.io" title="Email">
-          <Icon icon="mdi:email-outline" aria-hidden="true" />
+        <a href="mailto:rawdiamondmc@outlook.com" title="Email">
+          <i-mdi:email-outline />
         </a>
       </div>
 
@@ -129,7 +128,7 @@ onMounted(() => apply(theme.value));
     <div class="mobile-bottom">
       <div class="mobile-social">
         <a href="https://github.com/RawDiamondMC" target="_blank" rel="noopener" title="GitHub">
-          <Icon icon="mdi:github" aria-hidden="true" />
+          <i-mdi:github />
         </a>
         <a
           href="https://bsky.app/profile/rawdiamondmc.bsky.social"
@@ -137,10 +136,10 @@ onMounted(() => apply(theme.value));
           rel="noopener"
           title="Bluesky"
         >
-          <Icon icon="mdi:butterfly-outline" aria-hidden="true" />
+          <i-mdi:butterfly-outline />
         </a>
-        <a href="mailto:rawdiamondmc@aosc.io" title="Email">
-          <Icon icon="mdi:email-outline" aria-hidden="true" />
+        <a href="mailto:rawdiamondmc@outlook.com" title="Email">
+          <i-mdi:email-outline />
         </a>
       </div>
       <div class="mobile-footer">

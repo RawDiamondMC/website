@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { Icon } from "@iconify/vue";
-
 interface Friend {
   name: string;
   url: string;
@@ -38,12 +36,12 @@ const friends: Friend[] = [
         </div>
 
         <!-- External link indicator -->
-        <Icon icon="mdi:open-in-new" class="card-link-icon" aria-hidden="true" />
+        <i-mdi:open-in-new class="card-link-icon" />
       </a>
     </div>
 
     <p v-else class="empty-hint">
-      <Icon icon="mdi:account-group-outline" class="empty-icon" />
+      <i-mdi:account-group-outline class="card-link-icon" />
       还没有友链...来交个朋友吧！
     </p>
   </div>

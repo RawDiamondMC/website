@@ -1,8 +1,10 @@
 import { fileURLToPath, URL } from "node:url";
-
 import { defineConfig } from "vite-plus";
 import vue from "@vitejs/plugin-vue";
 import { blogPlugin } from "./vite-blog";
+import Icons from "unplugin-icons/vite";
+import IconsResolver from "unplugin-icons/resolver";
+import Components from "unplugin-vue-components/vite";
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -15,7 +17,12 @@ export default defineConfig({
     rules: { "vite-plus/prefer-vite-plus-imports": "error" },
     options: { typeAware: true, typeCheck: true },
   },
-  plugins: [vue(), blogPlugin()],
+  plugins: [
+    vue(),
+    blogPlugin(),
+    Icons({ compiler: "vue3" }),
+    Components({ resolvers: [IconsResolver()] }),
+  ],
   resolve: {
     alias: {
       "@": fileURLToPath(new URL("./src", import.meta.url)),
