@@ -38,7 +38,11 @@ function scanPosts(): BlogPost[] {
       const author = data.author || "RawDiamondMC";
       let date = "";
       if (data.date) {
-        try { date = new Date(data.date).toISOString().split("T")[0]; } catch { date = String(data.date); }
+        try {
+          date = new Date(data.date).toISOString().split("T")[0];
+        } catch {
+          date = String(data.date);
+        }
       }
 
       // categories: string → [string]
