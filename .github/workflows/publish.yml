@@ -1,0 +1,55 @@
+name: Publish
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "release"
+  cancel-in-progress: true
+
+env:
+  BUILD_PATH: "."
+
+jobs:
+  build:
+    name: Release Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v4
+        with:
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: Build and push
+        uses: docker/build-push-action@v7
+        with:
+          context: .
+          push: true
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/website:latest
+
+  #post:
+  #  name: Remote deployment
+  #  runs-on: ubuntu-latest
+  #  needs: [build]
+  #  steps:
+  #    - uses: KessokuTeaTime/action-kessoku-private-ci@main
+  #      with:
+  #        auth: ${{ secrets.KTT_API_TOKEN }}
+  #        endpoint: ${{ vars.KTT_API_ENDPOINT }}
+  #        payload: |
+  #          {
+  #            "service_label": "${{ vars.SERVICE_LABEL }}"
+  #          }

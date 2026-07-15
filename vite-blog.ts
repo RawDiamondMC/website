@@ -33,7 +33,11 @@ function scanPosts(): BlogPost[] {
       const { data, content } = matter(raw);
 
       const slug = file.replace(/\.md$/, "");
-      const title = data.title || slug;
+      if (!data.title) {
+        console.error(`${file} does not contain a title, skipped`);
+        throw new Error();
+      }
+      const title = data.title;
       const description = data.description || "";
       const author = data.author || "RawDiamondMC";
       let date = "";
