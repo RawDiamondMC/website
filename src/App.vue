@@ -86,8 +86,8 @@ onMounted(() => apply(theme.value));
         </button>
       </div>
 
-      <!-- Social Icons -->
-      <div class="sidebar-social">
+      <!-- Social Icons (desktop only) -->
+      <div class="sidebar-social desktop-only">
         <a href="https://github.com/RawDiamondMC" target="_blank" rel="noopener" title="GitHub">
           <Icon icon="mdi:github" aria-hidden="true" />
         </a>
@@ -104,8 +104,8 @@ onMounted(() => apply(theme.value));
         </a>
       </div>
 
-      <!-- Copyright -->
-      <div class="sidebar-footer">
+      <!-- Copyright (desktop only) -->
+      <div class="sidebar-footer desktop-only">
         <p class="copyright">© 2026 RawDiamondMC</p>
         <p class="built-with">
           Build with
@@ -124,6 +124,39 @@ onMounted(() => apply(theme.value));
     <main class="main-content">
       <RouterView />
     </main>
+
+    <!-- Mobile Bottom: Social + Footer -->
+    <div class="mobile-bottom">
+      <div class="mobile-social">
+        <a href="https://github.com/RawDiamondMC" target="_blank" rel="noopener" title="GitHub">
+          <Icon icon="mdi:github" aria-hidden="true" />
+        </a>
+        <a
+          href="https://bsky.app/profile/rawdiamondmc.bsky.social"
+          target="_blank"
+          rel="noopener"
+          title="Bluesky"
+        >
+          <Icon icon="mdi:butterfly-outline" aria-hidden="true" />
+        </a>
+        <a href="mailto:rawdiamondmc@aosc.io" title="Email">
+          <Icon icon="mdi:email-outline" aria-hidden="true" />
+        </a>
+      </div>
+      <div class="mobile-footer">
+        <p class="copyright">© 2026 RawDiamondMC</p>
+        <p class="built-with">
+          Build with
+          <a href="https://vite.dev/" target="_blank" rel="noopener">Vite</a> +
+          <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>
+        </p>
+        <p class="built-with">
+          Powered by
+          <a target="_blank" rel="noopener" href="https://wolf.snowlyicewolf.club/">AmarokIce</a> &
+          <a target="_blank" rel="noopener" href="https://github.com/HO-Artisan/">HO-Artisan</a>
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -316,6 +349,18 @@ onMounted(() => apply(theme.value));
   min-height: 100vh;
 }
 
+/* Desktop-only: hide on mobile */
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Mobile Bottom: Social + Footer (hidden on desktop) */
+.mobile-bottom {
+  display: none;
+}
+
 /* ===== Responsive ===== */
 @media (max-width: 768px) {
   .app-layout {
@@ -347,13 +392,52 @@ onMounted(() => apply(theme.value));
     font-size: 0.9rem;
   }
 
-  .sidebar-social {
-    padding: 1rem 0;
-  }
-
   .main-content {
     margin-left: 0;
     padding: 1.5rem;
+  }
+
+  /* Show mobile bottom section */
+  .mobile-bottom {
+    display: block;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: var(--color-background-soft);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-social {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-social a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    color: var(--color-text);
+    transition: all 0.2s ease;
+  }
+
+  .mobile-social a:hover {
+    background: color-mix(in srgb, var(--vt-c-green) 12%, transparent);
+    color: var(--vt-c-green);
+  }
+
+  .mobile-social :deep(svg) {
+    width: 22px;
+    height: 22px;
+  }
+
+  .mobile-footer {
+    text-align: center;
   }
 }
 </style>
