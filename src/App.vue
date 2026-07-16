@@ -61,12 +61,7 @@ onMounted(() => apply(theme.value));
           <i-mdi:account-group-outline class="nav-icon" />
           友链
         </RouterLink>
-        <a
-          href="https://afdian.com/a/RawDiamondMC"
-          target="_blank"
-          rel="noopener"
-          class="sponsor-link"
-        >
+        <a href="https://afdian.com/a/RawDiamondMC" target="_blank" rel="noopener">
           <i-mdi:coffee-outline class="nav-icon" />
           请我{{ randomDrink }}
         </a>
